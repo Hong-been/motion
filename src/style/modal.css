@@ -18,8 +18,7 @@
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  background-color: var(--document-bg-color);
-  background-color: var(--component-bg-gradient);
+  background-color: var(--bg-accent-color);
   width: 50%;
   height: fit-content;
   padding: 20px;
@@ -34,11 +33,14 @@
   margin-right: 10px;
   align-self: flex-end;
 }
-.form__label{
+.form__label, .form__label-body{
   color: var(--text-accent-color);
 	font-size: var(--large-font);
 }
 .form__input{
+  color: var(--smokywhite);
+  padding: 5px;
+  font-size: var(--normal-font);
   margin: 10px 0;
   height: 30px;
   background-color: var(--text-edit-bg-color);

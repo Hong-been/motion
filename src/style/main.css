@@ -16,13 +16,15 @@
 	box-shadow: var(--shadow-color);
 	padding: 0 10px;
 }
+.article--media,
 .article--text{
 	display: flex;
+	width: 90%;
+}
+.article--text{
 	flex-direction: column;
 }
-.article--media{
-	display: flex;
-}
+
 .article__delete{
 	color:var(--accent-color);
 	font-weight: var(--large-font-weight);

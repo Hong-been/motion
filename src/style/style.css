@@ -10,7 +10,6 @@
 	--component-bg-gradient: radial-gradient(
 		circle,
 		#646464e6 0%,
-		#6d6d6d 50%,
 		#000000 100%
 	);
 	--smokywhite: #dddbd8;
@@ -39,6 +38,10 @@ input{
 	outline-style:none;
 	border-style: none;
 }
+iframe{
+	border-style: none;
+}
+
 .container{
 	max-width: 800px;
 	margin:0 auto;
