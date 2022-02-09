@@ -1,0 +1,10 @@
+/* footer */
+.footer{
+  background-color: var(--translucent-black);
+  text-align: center;
+  padding: 15px 0;
+}
+.footer__desc{
+  color:var(--smokywhite);
+  font-size: var(--small-font);
+}

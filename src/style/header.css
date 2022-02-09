@@ -1,0 +1,24 @@
+/* header */
+.header{
+	background-color: var(--translucent-black);
+	padding:20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: sticky;
+	top:0;
+	left:0;
+}
+.header__title{
+	color: var(--accent-color);
+	font-size: var(--larger-font);
+	font-weight: var(--large-font-weight);
+}
+.header__button-list{
+	display: flex;
+}
+.header__button{
+	width : 90px;
+	height: 32px;
+	margin: 10px 5px;
+}

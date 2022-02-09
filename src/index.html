@@ -4,12 +4,74 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="./style/header.css">
+  <link rel="stylesheet" href="./style/main.css">
+  <link rel="stylesheet" href="./style/footer.css">
+  <link rel="stylesheet" href="./style/modal.css">
   <title>Hong's Motion</title>
-  <script type="modle" src="build/main.ts"></script>
-
+  <script type="module" src="/build/main.js"></script>
 </head>
 <body>
-  <div id="background"></div>
+  <div class="modal-overlay hidden">
+    <article class="modal">
+      <input type="button" value="X" class="modal__close red-x">
+      <form class="modal__form">
+        <label class="form__label">Title</label>
+        <input class="form__input">
+        <label class="form__label">Body</label>
+        <input class="form__input">
+        <input type="button" value="ADD" class="modal__add red-button">
+      </form>
+    </article>
+  </div>
+  
+  <section class="container">
+    <header class="header">
+      <div class="header__title">HONG's MOTION</div>
+      <li class="header__button-list">
+        <ul>
+          <input type="button" value="Image" class="header__button red-button"></input>
+        </ul>
+        <ul>
+          <input type="button" value="Video" class="header__button red-button"></input>
+        </ul>
+        <ul>
+          <input type="button" value="Note" class="header__button red-button"></input>
+        </ul>
+        <ul>
+          <input type="button" value="Task" class="header__button red-button"></input>
+        </ul>
+      </li>
+    </header>
+    <main class="main">
+      <li class="article-list">
+        <ul>
+          <article class="article">
+            <div class="article--text">
+              <div class="article--text__title">Note</div>
+              <div class="article--text__body">Note body</div>
+            </div>
+            <input type="button" value="X" class="article__delete red-x"></input>
+          </article>
+        </ul>
+        <ul>
+          <article class="article">
+            <div class="article--media">
+              <img src="https://picsum.photos/200" class="article--media__content"></img>
+              <div class="article--media__title">random image generator</div>
+            </div>
+            <input type="button" value="X" class="article__delete red-x"></input>
+          </article>
+        </ul>
+      </li>
+    </main>
+    <footer class="footer">
+      <div class="footer__desc">Hongbeen's Motion Project based on TypeScript</div>
+      <a class="footer__desc" href="https://github.com/Hong-been/motion">
+        Click to show Github!</a>
+      
+    </footer>
+  </section>
 </body>
 </html>

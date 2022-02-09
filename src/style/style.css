@@ -1,0 +1,58 @@
+:root {
+	--bg-main-color: #00000080;
+	--bg-accent-color: #2d2d2d;
+	--accent-color: #f64435;
+	--text-accent-color: #ffe498;
+	--text-edit-bg-color: #575757;
+	--border-color: #3f3f3f;
+	--shadow-color: #202020;
+	--document-bg-color: #686868b2;
+	--component-bg-gradient: radial-gradient(
+		circle,
+		#646464e6 0%,
+		#6d6d6d 50%,
+		#000000 100%
+	);
+	--smokywhite: #dddbd8;
+	--black: #000000;
+	--translucent-black: #00000099;
+
+	--larger-font: 26px;
+	--large-font: 18px;
+	--normal-font: 16px;
+	--small-font: 12px;
+	--large-font-weight: 700;
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
+input{
+	outline-style:none;
+	border-style: none;
+}
+.container{
+	max-width: 800px;
+	margin:0 auto;
+	background-color: var(--document-bg-color);
+}
+.red-button{
+	background-color: var(--accent-color);
+	color: var(--smokywhite);
+	font-size: var(--small-font);
+	cursor: pointer;
+}
+.red-x{
+	color:var(--accent-color);
+  font-weight: var(--large-font-weight);
+  background-color: transparent;
+	cursor: pointer;
+}
