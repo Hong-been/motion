@@ -1,5 +1,3 @@
-setBackgroundImg("/public/cool-background.png");
-
 const headerButtons:NodeListOf<HTMLInputElement> = document.querySelectorAll('.header__button');
 const modalOverlay = document.querySelector('.modal-overlay');
 const modal= document.querySelector('.modal') as HTMLDivElement;
@@ -68,10 +66,6 @@ function onSubmit(e:Event){
   }
 
   closeModal();
-}
-
-function setBackgroundImg(path:string){
-  document.body.style.backgroundImage = `url(${path})`;
 }
 
 function openModal(article:ArticleType){

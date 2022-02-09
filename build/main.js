@@ -10,7 +10,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-setBackgroundImg("/public/cool-background.png");
 var headerButtons = document.querySelectorAll('.header__button');
 var modalOverlay = document.querySelector('.modal-overlay');
 var modal = document.querySelector('.modal');
@@ -58,9 +57,6 @@ function onSubmit(e) {
         deleteBtns.forEach(function (btn) { return btn.addEventListener('click', deleteArticle); });
     }
     closeModal();
-}
-function setBackgroundImg(path) {
-    document.body.style.backgroundImage = "url(".concat(path, ")");
 }
 function openModal(article) {
     var label = modal.querySelector('.form__label-body');

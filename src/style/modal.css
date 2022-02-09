@@ -40,7 +40,8 @@
 .form__input{
   color: var(--smokywhite);
   padding: 5px;
-  font-size: var(--normal-font);
+  font-size: var(--large-font);
+  font-weight: 600;
   margin: 10px 0;
   height: 30px;
   background-color: var(--text-edit-bg-color);
