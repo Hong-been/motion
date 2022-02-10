@@ -48,7 +48,7 @@ body{
 	height:100vh;
 }
 
-.container{
+.root{
 	max-width: 800px;
 	height: 100%;
 	display: flex;

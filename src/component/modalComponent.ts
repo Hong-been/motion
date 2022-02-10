@@ -1,4 +1,4 @@
-import { MemoType,BodyType,MemoComponent } from './../types';
+import { MemoType,BodyType,MemoComponent } from '../types';
 
 export default class Modal{
   modalOverlay = document.querySelector('.modal-overlay') as HTMLDivElement;
