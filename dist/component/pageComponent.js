@@ -18,3 +18,4 @@ var PageComponent = (function () {
     return PageComponent;
 }());
 export default PageComponent;
+//# sourceMappingURL=pageComponent.js.map

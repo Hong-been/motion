@@ -13,3 +13,4 @@ var NoteComponent = (function () {
     return NoteComponent;
 }());
 export default NoteComponent;
+//# sourceMappingURL=noteComponent.js.map

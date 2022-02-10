@@ -1,14 +1,31 @@
 /* main */
 .main{
 	margin: 30px 20px;
+	height: 100%;
+	overflow-y: scroll;
+	/* firefox */
+	scrollbar-width: 6px;
+	scrollbar-color: var(--bg-accent-color);
+	scrollbar-face-color: var(--accent-color);
 }
+.main::-webkit-scrollbar{
+	/* safari, chrome */
+	width: 6px;
+	background: var(--bg-accent-color);
+}
+.main::-webkit-scrollbar-thumb{
+	/* safari, chrome */
+	background: var(--accent-color);
+}
+
 .article-list{
 	display: flex;
 	flex-direction: column;
+	margin: 0 10px;
 }
 .article{
 	min-height: 90px;
-	background-color: var(--component-bg-gradient);
+	background: var(--component-bg-gradient);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -24,7 +41,6 @@
 .article--text{
 	flex-direction: column;
 }
-
 .article__delete{
 	color:var(--accent-color);
 	font-weight: var(--large-font-weight);

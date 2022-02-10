@@ -29,3 +29,4 @@ var Modal = (function () {
     return Modal;
 }());
 export default Modal;
+//# sourceMappingURL=modalComponent.js.map

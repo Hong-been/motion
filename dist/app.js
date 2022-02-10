@@ -9,12 +9,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import PageComponent from "./component/pageComponent";
-import ImageComponent from "./component/imageComponent";
-import VideoComponent from "./component/videoComponent";
-import NoteComponent from "./component/noteComponent";
-import TaskComponent from "./component/taskComponent";
-import Modal from "./component/modalComponent";
+import PageComponent from "./component/pageComponent.js";
+import ImageComponent from "./component/imageComponent.js";
+import VideoComponent from "./component/videoComponent.js";
+import NoteComponent from "./component/noteComponent.js";
+import TaskComponent from "./component/taskComponent.js";
+import Modal from "./component/modalComponent.js";
 var pageComponent = new PageComponent();
 var imageComponent = new ImageComponent(pageComponent);
 var videoComponent = new VideoComponent(pageComponent);
@@ -84,3 +84,4 @@ function deleteArticle(e) {
     if (parent)
         parent.remove();
 }
+//# sourceMappingURL=app.js.map
