@@ -6,8 +6,8 @@
 	--text-edit-bg-color: #575757;
 	--border-color: #3f3f3f;
 	--shadow-color: #202020;
-	--document-bg-color: #686868;
-	--component-bg-gradient: #4e4e4e;
+	--document-bg-color: #68686833;
+	--component-bg-gradient: #858585;
 	--smokywhite: #dddbd8;
 	--black: #000000;
 	--translucent-black: #00000099;
@@ -39,10 +39,8 @@ iframe{
 }
 
 body{
-	background-image: url("/assets/cool-background.png");
+	background: url("/assets/cool-background.png") center/cover no-repeat;
 	height:100vh;
-	background-size: cover;
-	background-position: center;
 }
 
 .container{
