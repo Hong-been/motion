@@ -39,7 +39,7 @@ iframe{
 }
 
 body{
-	background-image: url("/public/cool-background.png");
+	background-image: url("/assets/cool-background.png");
 	height:100vh;
 	background-size: cover;
 	background-position: center;

@@ -1,27 +1,26 @@
+import * as types from "./types";
+
+import PageComponent from "./component/pageComponent";
+import ImageComponent from "./component/imageComponent";
+import VideoComponent from "./component/videoComponent";
+import NoteComponent from "./component/noteComponent";
+import TaskComponent from "./component/taskComponent";
+import Modal from "./component/modalComponent";
+
+const pageComponent = new PageComponent();
+const imageComponent = new ImageComponent(pageComponent);
+const videoComponent = new VideoComponent(pageComponent);
+const noteComponent = new NoteComponent(pageComponent);
+const taskComponent = new TaskComponent(pageComponent);
+const modalComponent = new Modal;
+
 const headerButtons:NodeListOf<HTMLInputElement> = document.querySelectorAll('.header__button');
-const modalOverlay = document.querySelector('.modal-overlay');
-const modal= document.querySelector('.modal') as HTMLDivElement;
 const modalForm = document.querySelector('.modal__form') as HTMLFormElement;
 const modalClose = document.querySelector('.modal__close') as HTMLInputElement;
-const modalAdd = document.querySelector('.modal__add');
 
-const newArticle:ArticleType = {
-  type : 'note',
-  title: "",
-  body: ""
-};
-
-type ArticleType =  {
-  type : ButtonType;
-  title:string;
-  body:string;
-};
-
-type ButtonType = 'image' | 'video' | 'note' | 'task';
-type BodyType = 'Body' | 'URL';
+const newMemo:types.MemoComponent = {title:'', body:''};
 
 modalClose.addEventListener('click',closeModal);
-
 modalForm.addEventListener('submit',onSubmit);
 
 if(headerButtons){
@@ -34,8 +33,8 @@ if(headerButtons){
       case 'task':
       case 'image':
         button.addEventListener('click', ()=>{
-          newArticle.type = name;
-          openModal(newArticle);
+          newMemo.type = name;
+          openModal(name);
         });
         break;
       default:
@@ -43,107 +42,45 @@ if(headerButtons){
     }
   });
 }
+
 function onSubmit(e:Event){
   e.preventDefault();
 
-  const modalTitle = document.querySelector('.form__title') as HTMLInputElement;
-  const modalBody = document.querySelector('.form__body') as HTMLInputElement;
-
-  const title:string = modalTitle.value;
-  const body:string = modalBody.value;
-
-  modalTitle.value='';
-  modalBody.value='';
+  const {title, body} = modalComponent.submit();
 
   if(!title && !body) return;
 
-  addArticle({...newArticle, title, body});
+  addMemo({...newMemo, title, body});
 
   const deleteBtns = document.querySelectorAll('.article__delete');
   
   if(deleteBtns){
-    deleteBtns.forEach(btn => btn.addEventListener('click',deleteArticle);)
+    deleteBtns.forEach(btn => btn.addEventListener('click',deleteArticle));
   }
 
   closeModal();
 }
 
-function openModal(article:ArticleType){
-  const label = modal.querySelector('.form__label-body') as HTMLElement;
-
-  if(article.type === 'note' || article.type==='task'){
-    const newText:BodyType = 'Body';
-    label.innerText = newText;
-  }else if(article.type === 'image' || article.type==='video'){
-    const newText:BodyType = 'URL';
-    label.innerText = newText;
-  }
-
-  if(modalOverlay){
-    modalOverlay.classList.remove('hidden');
-  } 
+function openModal(type:types.MemoType){
+  modalComponent.open(type);
 }
 
 function closeModal(){
-  if(modalOverlay){
-    modalOverlay.classList.add('hidden');
-  } 
+  modalComponent.close();
 }
 
-function addArticle(contents:ArticleType){
+function addMemo(contents:types.MemoComponent){
   const type = contents.type;
 
-  const articleList = document.querySelector('.article-list');
-  if(!articleList) return;
-
   if(type==='image'){
-    articleList.innerHTML += `
-    <ul class="article">
-    <div class="article--media">
-      <img src=${contents.body} class="article--media__content"></img>
-      <div class="article--media__title">${contents.title}</div>
-      </div>
-      <input type="button" value="X" class="article__delete red-x"></input>
-  </ul>
-    `;
+    imageComponent.createMemo(contents);
   }else if(type==='video'){
-    articleList.innerHTML += `
-    <ul class="article">
-      <div class="article--media">
-      <iframe src="${contents.body}" class="article--media__content" width="400" height="200">
-      </iframe>
-      <div class="article--media__title">${contents.title}</div>
-      </div>
-      <input type="button" value="X" class="article__delete red-x"></input>
-  </ul>
-    `;
+    videoComponent.createMemo(contents);
   }else if(type==='note'){
-    articleList.innerHTML += `
-    <ul class="article">
-      <div class="article--text">
-        <div class="article--text__title">${contents.title}</div>
-        <div class="article--text__body">${contents.body}</div>
-      </div>
-      <input type="button" value="X" class="article__delete red-x"></input>
-  </ul>
-    `;
+    noteComponent.createMemo(contents);
   }else if(type==='task'){
-    articleList.innerHTML += `
-    <ul class="article">
-      <div class="article--text">
-      <div class="article--text__title">${contents.title}</div>
-      <div class="article--text__body">
-        <input type="checkbox" value="${contents.body}" name="task1"></input>  
-        <label for="task1">${contents.body}</label>
-      </div>
-      </div>
-      <input type="button" value="X" class="article__delete red-x"></input>
-  </ul>
-    `;
-  }else{
-    console.log(`invalid type: ${type}`);
+    taskComponent.createMemo(contents);
   }
-
 }
 
 function deleteArticle(e:Event){
