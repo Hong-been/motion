@@ -29,9 +29,12 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 20px 0;
+	margin: 10px 0;
 	box-shadow: 2px 5px 10px 1px var(--shadow-color);
 	padding: 10px;
+}
+.article-contents{
+	flex-basis:90%;
 }
 .article--media,
 .article--text{
@@ -42,7 +45,10 @@
 	flex-direction: column;
 }
 .article__delete{
+	flex-basis:5%;
+	text-align: center;
 	color:var(--accent-color);
+	font-size: var(--large-font);
 	font-weight: var(--large-font-weight);
 	background-color: transparent;
 }
