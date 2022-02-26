@@ -40,12 +40,12 @@ export class PageItemComponent extends BaseComponent<HTMLLIElement> implements S
 }
 
 export class PageComponent extends BaseComponent<HTMLUListElement> implements Composable{
-  constructor(private pageItemContainer:SectionContainerConstructor){
+  constructor(private pageItemContainerConstructor:SectionContainerConstructor){
     super(`<ul class="article-list"></ul>`);
   }
 
   addChild(note:Component){
-    const pageItemContainer = new this.pageItemContainer();
+    const pageItemContainer = new this.pageItemContainerConstructor();
     
     pageItemContainer.addChild(note);
     pageItemContainer.attachTo(this.element,'afterbegin');

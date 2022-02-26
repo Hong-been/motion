@@ -5,6 +5,9 @@ import {NoteComponent} from "./component/page/item/noteComponent.js";
 import {TaskComponent} from "./component/page/item/taskComponent.js";
 import {VideoComponent} from "./component/page/item/videoComponent.js";
 import { Component } from './component/component.js';
+import { InputDialog } from './component/dialog/dialog.js';
+import {MediaDialog} from "./component/dialog/input/media-input.js";
+// import {TextDialog} from "./component/dialog/input/text-input.js";
 
 class App{
   private readonly page: Component & Composable ;
@@ -24,6 +27,25 @@ class App{
   
     const video = new VideoComponent('Video Title!','https://www.youtube.com/watch?v=zWhqy34zvVI&t=1337s');
     this.page.addChild(video);
+
+    const imageBtn = document.querySelector(".header__button.image")! as HTMLInputElement;
+    imageBtn.addEventListener('click',()=>{
+      const dialog = new InputDialog();
+      const media = new MediaDialog();
+      dialog.addChild(media);
+      
+      dialog.setOnCloseListener(()=>{
+        console.log('close');
+        dialog.removeFrom(document.body);
+      });
+      
+      dialog.setOnSubmitListener(()=>{
+        console.log('submit');
+        dialog.removeFrom(document.body);
+      });
+
+      dialog.attachTo(document.body);
+    })
   }
 
 }
