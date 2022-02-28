@@ -1,6 +1,7 @@
+import { MediaData } from './../dialog.js';
 import { BaseComponent } from '../../component.js';
 
-export class MediaDialog extends BaseComponent<HTMLElement>{
+export class MediaDialog extends BaseComponent<HTMLElement> implements MediaData{
   constructor(){
     super(`<div class="modal__form">
     <label class="form__label">Title</label>

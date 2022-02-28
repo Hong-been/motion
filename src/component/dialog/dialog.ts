@@ -2,6 +2,16 @@ import { Component } from './../component.js';
 import { BaseComponent } from '../component.js';
 import { Composable } from '../page/pageComponent.js';
 
+export interface MediaData{
+  readonly title:string,
+  readonly url:string
+}
+
+export interface TextData{
+  readonly title:string,
+  readonly body:string
+}
+
 type onCloseListener = ()=>void;
 type onSubmitListener = ()=>void;
 
