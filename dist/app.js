@@ -3,7 +3,7 @@ import { ImageComponent } from "./component/page/item/imageComponent.js";
 import { NoteComponent } from "./component/page/item/noteComponent.js";
 import { TaskComponent } from "./component/page/item/taskComponent.js";
 import { VideoComponent } from "./component/page/item/videoComponent.js";
-import { InputSectionDialog } from "./component/dialog/dialog.js";
+import { InputSectionDialog, } from "./component/dialog/dialog.js";
 import { MediaDialog } from "./component/dialog/input/media-input.js";
 import { TextDialog } from "./component/dialog/input/text-input.js";
 var App = (function () {
@@ -11,16 +11,16 @@ var App = (function () {
         this.dialogRoot = dialogRoot;
         this.page = new PageComponent(PageItemComponent);
         this.page.attachTo(appRoot, "afterbegin");
-        this.bindElementToDialog('.video', MediaDialog, function (input) {
+        this.bindElementToDialog(".video", MediaDialog, function (input) {
             return new VideoComponent(input.title, input.url);
         });
-        this.bindElementToDialog('.image', MediaDialog, function (input) {
+        this.bindElementToDialog(".image", MediaDialog, function (input) {
             return new ImageComponent(input.title, input.url);
         });
-        this.bindElementToDialog('.note', TextDialog, function (input) {
+        this.bindElementToDialog(".note", TextDialog, function (input) {
             return new NoteComponent(input.title, input.body);
         });
-        this.bindElementToDialog('.task', TextDialog, function (input) {
+        this.bindElementToDialog(".task", TextDialog, function (input) {
             return new TaskComponent(input.title, input.body);
         });
     }
