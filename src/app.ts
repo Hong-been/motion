@@ -5,14 +5,14 @@ import {NoteComponent} from "./component/page/item/noteComponent.js";
 import {TaskComponent} from "./component/page/item/taskComponent.js";
 import {VideoComponent} from "./component/page/item/videoComponent.js";
 import { Component } from './component/component.js';
-import { InputDialog } from './component/dialog/dialog.js';
+import { InputSectionDialog } from './component/dialog/dialog.js';
 import {MediaDialog} from "./component/dialog/input/media-input.js";
 // import {TextDialog} from "./component/dialog/input/text-input.js";
 
 class App{
   private readonly page: Component & Composable ;
 
-  constructor(appRoot:HTMLElement){
+  constructor(appRoot:HTMLElement, dialogRoot:HTMLElement){
     this.page = new PageComponent(PageItemComponent);
     this.page.attachTo(appRoot,'afterbegin');
     
@@ -30,25 +30,24 @@ class App{
 
     const imageBtn = document.querySelector(".header__button.image")! as HTMLInputElement;
     imageBtn.addEventListener('click',()=>{
-      const dialog = new InputDialog();
+      const dialog = new InputSectionDialog();
       const media = new MediaDialog();
       dialog.addChild(media);
-      
+      dialog.attachTo(dialogRoot);
+
       dialog.setOnCloseListener(()=>{
-        console.log('close');
-        dialog.removeFrom(document.body);
+        dialog.removeFrom(dialogRoot);
       });
       
       dialog.setOnSubmitListener(()=>{
-        console.log('submit');
-        dialog.removeFrom(document.body);
+        const video = new VideoComponent(media.title,media.url);
+        this.page.addChild(video);
+        dialog.removeFrom(dialogRoot);
       });
-
-      dialog.attachTo(document.body);
     })
   }
 
 }
 
 const main = document.querySelector('.main')! as HTMLElement;
-new App(main);
+new App(main,document.body);

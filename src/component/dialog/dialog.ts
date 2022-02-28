@@ -5,7 +5,7 @@ import { Composable } from '../page/pageComponent.js';
 type onCloseListener = ()=>void;
 type onSubmitListener = ()=>void;
 
-export class InputDialog extends BaseComponent<HTMLElement> implements Composable{
+export class InputSectionDialog extends BaseComponent<HTMLElement> implements Composable{
   closeListener?: onCloseListener;
   submitListener?: onSubmitListener;
 
@@ -13,10 +13,9 @@ export class InputDialog extends BaseComponent<HTMLElement> implements Composabl
     super(`<div class="modal-overlay">
     <article class="modal">
       <input type="button" value="X" class="modal__close red-x">
-      <div class="form__container">
-        
-      </div>
-      <input type="submit" value="ADD" class="modal__add red-button">
+      <form class="form__container">
+        <input type="submit" value="ADD" class="modal__add red-button">
+      </form>
     </article>
   </div>`);
 

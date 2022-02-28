@@ -1,7 +1,6 @@
 import { BaseComponent } from '../../component.js';
 
 export class MediaDialog extends BaseComponent<HTMLElement>{
-
   constructor(){
     super(`<div class="modal__form">
     <label class="form__label">Title</label>
@@ -10,7 +9,13 @@ export class MediaDialog extends BaseComponent<HTMLElement>{
     <input class="form__input form__body" placeholder="Enter media url">
     </div>`);
   }
+  get title():string{
+    const title = this.element.querySelector(".form__title")! as HTMLInputElement;
+    return title.value;
+  }
 
-  //TODO: get title(), get url(); 
-  // https://academy.dream-coding.com/courses/take/typescript/lessons/20416190-14-25
+  get url():string{
+    const body = this.element.querySelector(".form__body")! as HTMLInputElement;
+    return body.value;
+  }
 }
