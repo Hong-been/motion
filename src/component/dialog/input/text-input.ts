@@ -1,7 +1,6 @@
 import { BaseComponent } from '../../component.js';
 
 export class TextDialog extends BaseComponent<HTMLElement>{
-
   constructor(){
     super(`<div class="modal__form">
             <label class="form__label">Title</label>
